@@ -1,15 +1,18 @@
 //======== Dependencies===================//
+const express = require("express");
 const inquirer = require("inquirer");
 const mysql2 = require("mysql2");
 const cTable = require("console.table");
 
 const connection = mysql2.createConnection({
   host: "localhost",
-  port: 3001,
+  port: process.env.PORT || 3306,
   user: "root",
   password: "password",
   database: "employee_trackerDB",
 });
+
+console.table(`Connected to the employee_trackerDB database.`);
 
 //========== Connection ID ==========================//
 connection.connect(function (err) {
