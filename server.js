@@ -4,15 +4,17 @@ const inquirer = require("inquirer");
 const mysql2 = require("mysql2");
 const cTable = require("console.table");
 
+const PORT = process.env.PORT || 3001;
+const app = express();
+
 const connection = mysql2.createConnection({
   host: "localhost",
-  port: process.env.PORT || 3306,
   user: "root",
   password: "password",
-  database: "employee_trackerDB",
+  database: "EmployeeTracker",
 });
 
-console.table(`Connected to the employee_trackerDB database.`);
+console.table(`Connected to the EmployeeTracker database.`);
 
 //========== Connection ID ==========================//
 connection.connect(function (err) {
